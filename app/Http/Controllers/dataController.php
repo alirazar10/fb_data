@@ -47,6 +47,17 @@ class dataController extends Controller
         return $search;
         return 123;
     }
+
+    public function match(){
+        $data=[];
+            $match = DB::table('match_status')->first();
+            $searched = DB::table('searched')->get()->count();
+            $data['total-searched'] = $searched;
+            $data['matched'] = $match;
+            return $data;
+    }
+
+
     public function addData(Request $Req){
         $file = fopen("C:/Users/HP/Desktop/Afghanistan.txt", "r") or exit("Unable to open file!");
                 $data = array();

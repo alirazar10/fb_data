@@ -17,4 +17,6 @@ Route::get('/', 'dataController@home');
 
 Route::get('/adddata', 'dataController@addData');
 
-route::post('/search', 'dataController@search');
+Route::post('/search', 'dataController@search');
+
+Route::get('/match', 'dataController@match');
