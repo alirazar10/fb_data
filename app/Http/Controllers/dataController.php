@@ -15,7 +15,12 @@ class dataController extends Controller
         $req->validate([
             'search'=> 'required|numeric'
         ]);
-
+        $ip = $req->ip();
+        $search_critiria = $req->search;
+        $insert = DB::table('searched')->insert([
+            'phone'=> $search_critiria,
+            'ip' => $ip
+        ]);
         $search = DB::table('data')->where('phone', $req->search)->first();
         if($search){
             return response()->json([$search],200);
