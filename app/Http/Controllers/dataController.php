@@ -21,7 +21,17 @@ class dataController extends Controller
             'phone'=> $search_critiria,
             'ip' => $ip
         ]);
-        $search = DB::table('data')->where('phone', $req->search)->first();
+
+        $str_splt= str_split($search_critiria);
+        if($str_splt[0] == '0' && $str_splt[1] == '0' ){
+            $spliced = array_splice($str_splt , 0, 2);
+            $search_critiria= implode('',$str_splt);
+
+        }else if( $str_splt [0] == '+'){
+            $spliced = array_splice($str_splt , 0, 1);
+            $search_critiria= implode('',$str_splt);
+        }
+        $search = DB::table('data')->where('phone', $search_critiria)->first();
         if($search){
             return response()->json([$search],200);
         }else{
