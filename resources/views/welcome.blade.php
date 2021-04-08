@@ -32,33 +32,44 @@
         </style>
     </head>
     <body class="antialiased bg-light">
-        
-        <div class=" container min-h-screen bg-gray-100 mt-5 text-center">
-            <div>
-                <p>To find if your Facebook account has been hacked in a recent data breach Facebook, please search with your mobile number which is used in your Facebook account.</p>
-                <p class="text-direction">برای پیدا کردن اینکه آیا حساب فیس بوک شما در نقض داده های اخیر فیس بوک شامل است، لطفا با شماره تلفن همراه خود که در حساب فیس بوک شما استفاده شده جستجو کنید.</p>
-            </div>
-
-            <form action=""  id="search" >
-                @csrf
-                <div class="form-group row col-6 mx-auto ">
-                    
-                    <div class="input-group mt-5">
-                        <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"  value="{{ old('search') }}" placeholder="93700000000" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <button class="input-group-text btn btn-primary" type="submit" id="basic-addon2" > <i class="bi bi-search"></i></button>
-                    </div>
-                    @error('search')
-                        <div class="alert alert-danger mt-5">{{ $message }}</div>
-                    @enderror
+        <div class="mh-100 d-flex">
+            <div class=" container min-h-screen bg-gray-100 mt-5 text-center">
+                <div>
+                    <p>To find if your Facebook account has been hacked in a recent data breach Facebook, please search with your mobile number which is used in your Facebook account.</p>
+                    <p class="text-direction">برای پیدا کردن اینکه آیا حساب فیس بوک شما در نقض داده های اخیر فیس بوک شامل است، لطفا با شماره تلفن همراه خود که در حساب فیس بوک شما استفاده شده جستجو کنید.</p>
                 </div>
-               
-            </form>
-
-            <div id="result" class="mt-5 p-4 ">
-
+    
+                <form action=""  id="search" >
+                    @csrf
+                    <div class="form-group row col-6 mx-auto ">
+                        
+                        <div class="input-group mt-5">
+                            <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"  value="{{ old('search') }}" placeholder="93700000000" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <button class="input-group-text btn btn-primary" type="submit" id="basic-addon2" > <i class="bi bi-search"></i></button>
+                        </div>
+                        @error('search')
+                            <div class="alert alert-danger mt-5">{{ $message }}</div>
+                        @enderror
+                    </div>
+                   
+                </form>
+    
+                <div id="result" class="mt-5 p-4 ">
+    
+                </div>
+                
             </div>
+            <div >
+        </div>
+        
             
         </div>
+        <footer>
+            <div class="text-center">
+                
+            Powered by <a href="https://imorgroup.com/"><img src="https://hk.imorgroup.com/assets/images/imor_black.png" alt="" width="50" height="15"></a> &copy; 2021 
+            </div>
+        </footer>
     </body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
