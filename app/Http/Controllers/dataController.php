@@ -30,6 +30,9 @@ class dataController extends Controller
         }else if( $str_splt [0] == '+'){
             $spliced = array_splice($str_splt , 0, 1);
             $search_critiria= implode('',$str_splt);
+        }elseif($str_splt [0] == '0' && $str_splt [1] == '7'){
+            $spliced = array_splice($str_splt , 0, 1);
+            $search_critiria= '93'.implode('',$str_splt);
         }
         $search = DB::table('data')->where('phone', $search_critiria)->first();
         if($search){
