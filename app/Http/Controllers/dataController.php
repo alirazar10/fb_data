@@ -17,8 +17,11 @@ class dataController extends Controller
         ]);
 
         $search = DB::table('data')->where('phone', $req->search)->first();
-        
-        return response()->json([$search],200);
+        if($search){
+            return response()->json([$search],200);
+        }else{
+            return response()->json([$search],404);
+        }
         return view('/welcome');
         return $search;
         return 123;

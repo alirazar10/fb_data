@@ -24,7 +24,10 @@
             p{
                 font-size: 1.25rem;
             }
-            
+            .emoji-font ,h4 {
+                font-size: 1.5rem;
+                font-weight: 700
+            }
         </style>
     </head>
     <body class="antialiased bg-light">
@@ -50,7 +53,7 @@
                
             </form>
 
-            <div id="result" class="mt-5 p-4 bg-success text-white">
+            <div id="result" class="mt-5 p-4 ">
 
             </div>
             
@@ -72,18 +75,50 @@
                 contentType:false,
                 processData:false,
                 success: function (response) {
-                    data = 'Mobile: ' + response[0]['phone'];
-                    $('#result').html(data);
-                    $('#result').append(' Name: '+response[0]['name']);
-                    $('#result').append(' lastname: ' + response[0]['lastname']);
-                    console.log(response[0]['phone']);
-                    console.log(response[0]['name']);
-                    console.log(response[0]['lastname']);
+                    el = $('#result');
+                    console.log(response);
+                        data = 'Mobile: ' + response[0]['phone'] 
+                        + ' | Name: '+response[0]['name']
+                        + ' | lastname: ' + response[0]['lastname'];
+                        h4 = "<h4 class='text-danger'> Bad Luck <i class='bi bi-emoji-frown' ></i></h4>"
+                        div = "<div class='bg-warning text-white p-4'>"
+                                +h4
+                                +"<p>"
+                                +data
+                                "</p>"
+                                +"</div>"
+                                console.log(data);
+                        el.html(div);
+                        // el.append(' Name: '+response[0]['name']);
+                        // el.append(' lastname: ' + response[0]['lastname']);
+                        $('#result h4 i').addClass('emoji-font');
+                        console.log(response[0]['phone']);
+                        console.log(response[0]['name']);
+                        console.log(response[0]['lastname']);
+                    
                 },error: function(response){
+                    el = $('#result');
+                    var msg = JSON.parse(response.responseText);
                     if(response.status == 422){
-                        var msg = JSON.parse(response.responseText);
-                        alert(msg['message']);
-                    }else{
+                        h4 = "<h4 class='text-white'> Bad Luck <i class='bi bi-emoji-neutral' ></i></h4>";
+                        msg = msg['message']+'<br>'+ msg['errors']['search'];
+                        div = '<div class="bg-danger text-white p-4">'
+                            + h4
+                            + msg
+                            +'</div>'
+                        el.html(div);
+                        console.log(response);
+                        // alert(msg['message']);
+                    }else if(response.status == 404){
+                        h4 = "<h4 class='text-white'> Good Luck <i class='bi bi-emoji-smile' ></i></h4>";
+                        msg = '<p>You were lucky! You are not in the list</p>';
+                        div = '<div class="bg-primary text-white p-4">'
+                            + h4
+                            + msg
+                            +'</div>'
+                        el.html(div);
+                        el.html();
+                    } else{
                         alert('Try again Later');
                     }
                 }
