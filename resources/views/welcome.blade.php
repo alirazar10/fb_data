@@ -6,6 +6,7 @@
         <meta name="twitter:description" content=" To find if your Facebook account has been hacked in a recent data breach Facebook, please search with your mobile number which is used in your Facebook account">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>FB DATA</title>
+        <link rel="icon" type="image/png" href="img/imor_black.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@
     
                 <form action=""  id="search" >
                     @csrf
-                    <div class="form-group row col-6 mx-auto ">
+                    <div class="form-group row col-md-6 mx-auto ">
                         
                         <div class="input-group mt-5">
                             <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"  value="{{ old('search') }}" placeholder="93700000000" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -67,7 +68,7 @@
         <footer>
             <div class="text-center">
                 
-            Powered by <a href="https://imorgroup.com/"><img src="https://hk.imorgroup.com/assets/images/imor_black.png" alt="" width="50" height="15"></a> &copy; 2021 
+            Powered by <a href="https://imorgroup.com/"><img src="img/imor_black.png" alt="" width="50" height="15"></a> &copy; 2021 
             </div>
         </footer>
     </body>
