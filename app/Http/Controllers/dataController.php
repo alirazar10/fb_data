@@ -35,9 +35,12 @@ class dataController extends Controller
             $search_critiria= '93'.implode('',$str_splt);
         }
         $search = DB::table('data')->where('phone', $search_critiria)->first();
+        $match_status = DB::table('match_status')->first();
         if($search){
+            $match = DB::table('match_status')->update(['match'=> $match_status->match+1]);
             return response()->json([$search],200);
         }else{
+            $match = DB::table('match_status')->update(['unmatch'=> $match_status->unmatch+1]);
             return response()->json([$search],404);
         }
         return view('/welcome');
